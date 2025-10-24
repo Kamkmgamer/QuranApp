@@ -24,8 +24,8 @@ const MainDrawer: FC<{
         icon: (
           <MaterialIcons
             name="bookmark"
-            size={22}
-            color={colorScheme === "dark" ? "#FAF0E6" : "#544981"}
+            size={24}
+            color="#FFFFFF"
           />
         ),
         onPress: () => {
@@ -37,9 +37,9 @@ const MainDrawer: FC<{
         title: "مواقيت الصلاة",
         icon: (
           <MaterialIcons
-            name="timer"
-            size={22}
-            color={colorScheme === "dark" ? "#FAF0E6" : "#544981"}
+            name="access-time"
+            size={24}
+            color="#FFFFFF"
           />
         ),
         onPress: () => {
@@ -55,24 +55,24 @@ const MainDrawer: FC<{
         },
         icon: (
           <MaterialIcons
-            name="location-searching"
-            size={22}
-            color={colorScheme === "dark" ? "#FAF0E6" : "#544981"}
+            name="explore"
+            size={24}
+            color="#FFFFFF"
           />
         ),
       },
     ];
-  }, [colorScheme]);
+  }, []);
 
   return (
     <MyModal {...props}>
-      <View className=" w-full h-full absolute bg-black/30 -z-10"></View>
+      <View className=" w-full h-full absolute bg-black/50 -z-10"></View>
       <View className="w-full h-full flex-1 justify-end ">
-        <Motion.View className="bg-lotion shadow-xl dark:bg-darkBg bottom-0 right-0 w-3/5 pt-4 items-start justify-start h-full ">
-          <Text className="mx-3 text-lg my-1 text-primary dark:text-primaryDark font-HelveticaBold">
+        <Motion.View className="bg-darkGreen shadow-xl dark:bg-darkGreen bottom-0 right-0 w-3/4 pt-8 items-start justify-start h-full ">
+          <Text className="mx-4 text-xl my-2 text-golden dark:text-golden font-HelveticaBold">
             القائمة
           </Text>
-          <View className="w-full border-t-[1px] border-primary/40 pt-4 dark:border-primaryDark/30">
+          <View className="w-full border-t-[2px] border-golden/30 pt-6 dark:border-golden/30">
             {items.map((item, i) => {
               return <MenuItem key={i} {...item} />;
             })}
