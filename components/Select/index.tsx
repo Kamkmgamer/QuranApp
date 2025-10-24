@@ -18,51 +18,53 @@ export const Select = ({
   const { colorScheme } = useColorScheme();
 
   const styles = StyleSheet.create({
-    container: { borderWidth: 0, borderRadius: 4, overflow: "hidden" },
+    container: { borderWidth: 0, borderRadius: 12, overflow: "hidden" },
     dropdown: {
       marginHorizontal: 16,
-      borderRadius: 4,
-      borderColor: colorScheme === "dark" ? "#787588" : "#544981",
-      paddingHorizontal: 10,
-      borderWidth: 1,
+      borderRadius: 12,
+      borderColor: "#D4AF37",
+      paddingHorizontal: 12,
+      paddingVertical: 10,
+      borderWidth: 2,
       width: "80%",
       direction: "ltr",
+      backgroundColor: "transparent",
     },
     item: {
       fontFamily: "HelveticaNeueLTArabic-Roman",
-      fontSize: 12,
-      color: colorScheme === "dark" ? "#FAF0E6" : "#544981",
+      fontSize: 14,
+      color: "#FFFFFF",
     },
     itemContainerStyle: {
-      backgroundColor: colorScheme === "dark" ? "#292630" : "#F5F4F4",
+      backgroundColor: "#155045",
     },
     icon: {
       marginRight: 5,
     },
     placeholderStyle: {
-      fontSize: 12,
+      fontSize: 14,
     },
     selectedStyle: {
-      backgroundColor: colorScheme === "dark" ? "#292630" : "#F5F4F4",
+      backgroundColor: "#155045",
     },
     selectedTextStyle: {
-      fontSize: 12,
+      fontSize: 14,
       fontFamily: "HelveticaNeueLTArabic-Roman",
-      color: colorScheme === "dark" ? "#FAF0E6" : "#544981",
+      color: "#FFFFFF",
     },
     iconStyle: {
       display: "none",
     },
     inputSearchStyle: {
       height: 40,
-      fontSize: 12,
+      fontSize: 14,
     },
   });
 
   return (
     <View className="w-full">
       {label && (
-        <Text className="mx-3 my-3 text-primary dark:text-primaryDark font-HelveticaBold">
+        <Text className="mx-4 my-3 text-textLight dark:text-textLight font-HelveticaBold text-base">
           {label}
         </Text>
       )}
@@ -75,7 +77,7 @@ export const Select = ({
             <MaterialIcons
               name="chevron-right"
               size={24}
-              color={colorScheme === "dark" ? "#FAF0E6" : "#544981"}
+              color="#D4AF37"
             />
           </View>
         )}
@@ -83,7 +85,7 @@ export const Select = ({
         itemTextStyle={styles.item}
         itemContainerStyle={styles.itemContainerStyle}
         containerStyle={styles.container}
-        activeColor={colorScheme === "dark" ? "#433F4E" : "#E8E8E8"}
+        activeColor="#2D7A67"
         iconStyle={styles.iconStyle}
         value={value}
         valueField="value"
