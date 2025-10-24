@@ -38,13 +38,14 @@ const JozzTab = ({ search }: { search: string }) => {
           لا يوجد
         </Text>
       }
-      renderItem={({ item }) => (
+      renderItem={({ item, index }) => (
         <JozzCard
           onPress={() => {
             router.push(`/jozz/${item.id}`);
           }}
           key={item.id}
           jozz={item}
+          isGolden={index === 0}
         />
       )}
     />
