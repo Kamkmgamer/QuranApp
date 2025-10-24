@@ -20,7 +20,7 @@ const Favs = () => {
       : data;
 
   return (
-    <View className=" bg-white dark:bg-darkBg">
+    <View className="bg-cream dark:bg-darkBg">
       <Header title="العلامات المرجعية" />
 
       <View className="px-5">
@@ -33,12 +33,12 @@ const Favs = () => {
           </View>
         )}
         {isLoading && (
-          <Text className="text-center font-HelveticaRoman mt-5 h-[80%] text-primary dark:text-primaryDark">
+          <Text className="text-center font-HelveticaRoman mt-5 h-[80%] text-darkGreen dark:text-textLight">
             جاري التحميل...
           </Text>
         )}
         {filteredData?.length === 0 ? (
-          <Text className="text-center font-HelveticaRoman mt-20 h-[80%] text-primary dark:text-primaryDark">
+          <Text className="text-center font-HelveticaRoman mt-20 h-[80%] text-darkGreen dark:text-textLight">
             لا يوجد علامات مرجعية
           </Text>
         ) : (
