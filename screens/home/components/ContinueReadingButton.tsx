@@ -1,5 +1,5 @@
-import { Pressable, Text } from "react-native";
-import ArrowRight from "@/assets/icons/arrow_right.svg";
+import { Pressable, Text, View } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
 
 export function ContinueReadingButton({ onClick }: { onClick?: () => void }) {
@@ -7,23 +7,22 @@ export function ContinueReadingButton({ onClick }: { onClick?: () => void }) {
 
   return (
     <Pressable
-      className="flex-[0.2] h-20 flex-row items-center absolute right-3 top- text-primar dark:text-primaryDark "
+      className="flex-row items-center justify-between absolute left-3 top-5"
       onPress={() => {
         if (onClick) onClick();
       }}
     >
-      <Text className="font-HelveticaBold text-primary dark:text-primaryDark ">
-        متابعة القراءة
-      </Text>
-      <ArrowRight
-        style={{
-          // @ts-ignore
-          color: colorScheme === "dark" ? "#FAF0E6" : "#544981",
-        }}
-        width={22}
-        height={12}
-        className="mt-2"
-      />
+      <View className="flex-row items-center">
+        <MaterialIcons
+          name="bookmark"
+          size={20}
+          color="#D4AF37"
+          style={{ marginLeft: 8 }}
+        />
+        <Text className="font-HelveticaRoman text-golden dark:text-golden text-sm">
+          متابعة
+        </Text>
+      </View>
     </Pressable>
   );
 }
