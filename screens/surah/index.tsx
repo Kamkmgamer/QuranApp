@@ -67,7 +67,7 @@ const Surah = () => {
             { Meccan: "مكية", Medinan: "مدنية" }[data?.type || "Meccan"]
           }`}
         />
-        <View className=" bg-white dark:bg-darkBg">
+        <View className="bg-cream dark:bg-darkBg">
           {
             {
               page: (
