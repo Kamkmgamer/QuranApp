@@ -9,7 +9,6 @@ import {
   Text,
   View,
 } from "react-native";
-import ArrowRight from "@/assets/icons/arrow_right.svg";
 import { FavType } from "@/types";
 import { useState } from "react";
 
@@ -35,8 +34,7 @@ export function FavCard({
       },
       onPanResponderRelease: () => {
         if (dx > (windowWidth * 50) / 100) {
-          // Swipe right threshold, you can adjust this value
-          onDelete();
+         onDelete();
         } else {
           position.setValue({ x: 0, y: 0 });
         }
@@ -46,44 +44,48 @@ export function FavCard({
   return (
     <Animated.View
       {...panResponder(item.id).panHandlers}
-      className="bg-lotion dark:bg-blackCoral rounded px-4 pb-2 pt-3 relative"
+      className="bg-white dark:bg-darkGreen/30 rounded-2xl px-5 pb-3 pt-4 relative border border-darkGreen/20"
       style={{ transform: [...position.getTranslateTransform()] }}
     >
-      <Text className=" text-lg min-[600px]:text-xl py-3 text-primary  dark:text-primaryDark !font-UthmanicHafs ">
+      <View className="flex-row items-center justify-start mb-2">
+        <MaterialIcons
+          name="bookmark"
+          size={20}
+          color={colorScheme === "dark" ? "#FFFFFF" : "#1A5F4F"}
+        />
+      </View>
+      <Text className="text-base min-[600px]:text-lg py-2 text-darkGreen dark:text-textLight !font-UthmanicHafs leading-8">
         {item.text}
       </Text>
-      <View className="justify-between flex-row ">
+      <View className="justify-between flex-row items-center mt-2">
         <View>
-          <Text className="text-primary dark:text-primaryDark !font-UthmanicHaf">
-            سورة {item.sora_name}{" "}
+          <Text className="text-darkGreen dark:text-textLight font-HelveticaBold text-sm">
+            سورة {item.sora_name}
           </Text>
-          <Text className="text-primary dark:text-primaryDark !font-UthmanicHaf text-xs mt-1">
-            الاية {item.number}
+          <Text className="text-textGray dark:text-textLight/70 font-HelveticaLight text-xs mt-1">
+            الآية {item.number}
           </Text>
         </View>
         {item.jozz && (
-          <Text className="text-primary/20 dark:text-primaryDark/20 absolute right-0 -top-3 text-xs">
-            الجزء {item.jozz}{" "}
+          <Text className="text-textGray dark:text-textLight/50 absolute left-0 top-0 text-xs">
+            الجزء {item.jozz}
           </Text>
         )}
         <Pressable
           onPress={() => {
             if (item) Fav.goToFav({ ...item });
           }}
-          className="flex-row py-3  pl-4"
+          className="flex-row items-center py-2 px-3 bg-darkGreen dark:bg-darkGreen rounded-lg"
         >
-          <Text className="text-primary  dark:text-primaryDark !font-HelveticaRoman">
+          <MaterialIcons
+            name="arrow-back"
+            size={18}
+            color="#FFFFFF"
+            style={{ marginLeft: 4 }}
+          />
+          <Text className="text-textLight font-HelveticaBold text-sm">
             متابعة
           </Text>
-          <ArrowRight
-            style={{
-              // @ts-ignore
-              color: colorScheme === "dark" ? "#FAF0E6" : "#544981",
-            }}
-            width={20}
-            height={12}
-            className="mt-2"
-          />
         </Pressable>
       </View>
     </Animated.View>
