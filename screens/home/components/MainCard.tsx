@@ -10,7 +10,6 @@ export function MainCard() {
   const [recent, setRecent] = useState<Recent>();
   const [view, setView] = useState<"page" | "ayat">();
 
-  // Load recent from storage when screen is focused
   useFocusEffect(
     useCallback(() => {
       const recentJSON = storage.getString("recent");
@@ -31,7 +30,7 @@ export function MainCard() {
       : ` سورة ${recent?.name} `;
 
   return (
-    <View className="mt-3 bg-lotion dark:bg-blackCoral w-full  rounded-[17px] px-6 relative py-6">
+    <View className="mt-3 bg-darkGreen dark:bg-darkGreen w-full rounded-3xl px-6 relative py-6">
       {recent && (recent?.aya || recent?.page) && (
         <CardContent
           primary_text={
