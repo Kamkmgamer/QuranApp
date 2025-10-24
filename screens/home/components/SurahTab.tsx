@@ -30,12 +30,13 @@ const SurahTab = ({ data, search }: { data: Surah[]; search: string }) => {
 
 export default SurahTab;
 
-const RenderSurah = ({ item }: { item: Surah }) => (
+const RenderSurah = ({ item, index }: { item: Surah; index: number }) => (
   <SurahCard
     onPress={() => {
       router.push(`/surah/${item.number}`);
     }}
     key={item.number}
     sura={item}
+    isGolden={index === 0}
   />
 );
