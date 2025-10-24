@@ -9,20 +9,20 @@ interface Props {
 }
 const Tabs = ({ tabs, activeTab, setTab, vertical = false }: Props) => {
   return (
-    <View className={`w-full h-10 `}>
-      <View className={`w-full flex-1 flex-row  justify-between `}>
+    <View className={`w-full h-12 bg-lightBeige dark:bg-darkBg rounded-xl p-1`}>
+      <View className={`w-full flex-1 flex-row justify-between gap-1`}>
         {tabs.map((item, index) => (
           <Pressable
-            className={`${vertical && ` w-24 `} cursor-pointer w-20 `}
+            className={`flex-1 rounded-lg ${item.name === activeTab ? 'bg-darkGreen dark:bg-darkGreen' : 'bg-transparent'}`}
             onPress={() => setTab(item.name)}
             key={index}
           >
             <Text
-              className={`text-base text-center transition-all w-full p-2 ${
+              className={`text-sm text-center w-full py-2 ${
                 item.name === activeTab
-                  ? "font-HelveticaBold rounded-xl transition-all  bg-lotion dark:bg-blackCoral text-primary dark:text-primaryDark"
-                  : " font-HelveticaRoman  text-primary/20 dark:text-primaryDark/70"
-              } `}
+                  ? "font-HelveticaBold text-textLight dark:text-textLight"
+                  : "font-HelveticaRoman text-textGray dark:text-textLight/70"
+              }`}
             >
               {item.title}
             </Text>
