@@ -11,16 +11,16 @@ const PrayerTimes = () => {
   const { colorScheme } = useColorScheme();
 
   return (
-    <View className=" bg-white dark:bg-darkBg">
+    <View className="bg-cream dark:bg-darkBg">
       <Header title="مواقيت الصلاة" />
       <View className="px-5">
         {isLoading && (
-          <Text className="text-center font-HelveticaRoman mt-5 h-[90%] text-primary dark:text-primaryDark">
+          <Text className="text-center font-HelveticaRoman mt-5 h-[90%] text-darkGreen dark:text-textLight">
             جاري التحميل...
           </Text>
         )}
         {!isLoading && error && (
-          <Text className="text-center mt-6 text-primary dark:text-primaryDark font-HelveticaRoman">
+          <Text className="text-center mt-6 text-darkGreen dark:text-textLight font-HelveticaRoman">
             {error}
           </Text>
         )}
@@ -28,7 +28,7 @@ const PrayerTimes = () => {
           <ScrollView className="flex-col mt-6 h-[90%]">
             <Prayer title="الفجر" value={timings.Fajr.split(" ")[0]} />
             <Prayer title="الشروق" value={timings.Sunrise.split(" ")[0]} />
-            <Prayer title="الظُّهْر" value={timings.Dhuhr.split(" ")[0]} />
+            <Prayer title="الظُّهْر" value={timings.Dhuhr.split(" ")[0]} />
             <Prayer title="العَصر" value={timings.Asr.split(" ")[0]} />
             <Prayer title="المَغرب" value={timings.Maghrib.split(" ")[0]} />
             <Prayer title="العِشاء" value={timings.Isha.split(" ")[0]} />
