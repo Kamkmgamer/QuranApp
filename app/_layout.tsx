@@ -48,18 +48,18 @@ export default function RootLayout(): ReactNode {
           }}
           style={{
             ...styles.container,
-            backgroundColor: colorScheme === "dark" ? "#352F44" : "white",
+            backgroundColor: colorScheme === "dark" ? "#0F3D32" : "#F5EFE0",
           }}
-          className=" bg-white dark:bg-darkBg "
+          className=" bg-cream dark:bg-darkBg "
         >
           <Stack
             screenOptions={{
               headerShown: false,
-              statusBarColor: "#352F44",
+              statusBarColor: colorScheme === "dark" ? "#0F3D32" : "#F5EFE0",
               contentStyle: {
                 padding: 0,
                 margin: 0,
-                backgroundColor: colorScheme === "dark" ? "#352F44" : "white",
+                backgroundColor: colorScheme === "dark" ? "#0F3D32" : "#F5EFE0",
               },
               animation: "slide_from_bottom",
             }}
