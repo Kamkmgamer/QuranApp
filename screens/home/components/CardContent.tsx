@@ -14,10 +14,10 @@ const CardContent = ({
   return (
     <>
       <View className="h-8 flex flex-col justify-center ">
-        <Text className="font-HelveticaRoman text-xl text-primary dark:text-primaryDark  ">
+        <Text className="font-HelveticaBold text-2xl text-textLight dark:text-textLight">
           {primary_text}
         </Text>
-        <Text className=" text-secondary/30 dark:text-primaryDark text-xs font-HelveticaLight">
+        <Text className="text-textLight/80 dark:text-textLight/80 text-sm font-HelveticaLight">
           {secondary_text}
         </Text>
       </View>
