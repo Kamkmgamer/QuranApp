@@ -30,8 +30,13 @@ export const tabs = (props: { data: Surah[]; search: string }) => [
     component: <JozzTab search={props.search} />,
   },
   {
-    name: "azkar",
-    title: "أذكار",
+    name: "page",
+    title: "صفحة",
+    component: <SurahTab {...props} />,
+  },
+  {
+    name: "ayah",
+    title: "آية",
     component: <AzkarTab search={props.search} />,
   },
 ];
