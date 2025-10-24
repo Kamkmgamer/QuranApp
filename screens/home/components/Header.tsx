@@ -1,51 +1,31 @@
-import { Pressable, Text, View } from "react-native";
-import Moon from "@/assets/icons/Moon.svg";
-import Sun from "@/assets/icons/Sun.svg";
-import Menu from "@/assets/icons/Menu.svg";
+import { Pressable, View } from "react-native";
 import { useColorScheme } from "nativewind";
-import { storage } from "@/utils";
-import { Motion } from "@legendapp/motion";
+import { MaterialIcons } from "@expo/vector-icons";
+
 export function Header({ onClickMenu }: { onClickMenu?: () => void }) {
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
-    <View className="flex-1 flex-row justify-between ">
+    <View className="flex-row justify-between items-center w-full px-4 pt-2">
       <Pressable
         onPress={onClickMenu}
-        className=" h-18 w-32 pl-4  items-start justify-start "
+        className="p-2 bg-darkGreen dark:bg-darkGreen rounded-lg"
       >
-        <Menu
-          className="my-auto"
-          color={colorScheme === "dark" ? "#FAF0E6" : "#544981"}
-          width={25}
-          height={20}
+        <MaterialIcons
+          name="settings"
+          size={24}
+          color="#FFFFFF"
         />
       </Pressable>
       <Pressable
-        onPress={() => {
-          storage.set("theme", colorScheme === "dark" ? "light" : "dark");
-          toggleColorScheme();
-        }}
-        className=" h-18 w-32 pr-4 flex-row items-center justify-end "
+        onPress={onClickMenu}
+        className="p-2"
       >
-        <View className="flex-row items-center justify-end p-2 rounded-full bg-lotion dark:bg-blackCoral">
-          <Motion.Text
-            animate={{ x: colorScheme === "light" ? 0 : -25 }}
-            transition={{ type: "spring" }}
-            className={` text-primary dark:text-primaryDark/60 mx-2 mt-1 font-HelveticaRoman text-xs transition-transform transform duration-200 ${
-              colorScheme === "light" ? "" : "-translate-x-6"
-            }`}
-          >
-            {colorScheme === "dark" ? "فاتح" : "مظلم"}
-          </Motion.Text>
-          <Motion.View animate={{ x: colorScheme === "light" ? 0 : 32 }}>
-            {colorScheme === "dark" ? (
-              <Sun width={25} height={20} />
-            ) : (
-              <Moon width={22} height={16} />
-            )}
-          </Motion.View>
-        </View>
+        <MaterialIcons
+          name="menu"
+          size={28}
+          color={colorScheme === "dark" ? "#FFFFFF" : "#1A5F4F"}
+        />
       </Pressable>
     </View>
   );
