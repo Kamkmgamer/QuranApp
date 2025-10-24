@@ -8,7 +8,7 @@ import { SearchInput } from "./components/SearchInput";
 import InnerSplash from "@/components/InnerSplash";
 import { Header } from "./components/Header";
 import { useFocusEffect } from "expo-router";
-
+import MosqueIllustration from "@/components/MosqueIllustration";
 import { ContinePopup } from "./components/ContinePopup";
 import MainDrawer from "./components/MainDrawer";
 
@@ -29,21 +29,28 @@ const Home = () => {
 
   return data && isFetched ? (
     <View
-      className=" w-full h-screen bg-white dark:bg-darkBg "
+      className=" w-full h-screen bg-cream dark:bg-darkBg "
       onTouchStart={() => {
         if (openCont) setOpenCont(false);
       }}
     >
-      <View className="h-[35%]">
-        <Header onClickMenu={() => setOpenMenu(true)} />
-        <View className="mt-3 w-full px-4">
-          <Text className="text-lg font-HelveticaBold mb-2 text-primary/40 dark:text-primaryDark">
-            بسم الله الرحمن الرحيم
-          </Text>
-          <MainCard />
-          <SearchInput value={search} onChange={(value) => setSearch(value)} />
+      {/* Mosque illustration header */}
+      <View className="relative">
+        <View className="absolute top-0 right-0 pt-3 pr-4 z-10">
+          <Header onClickMenu={() => setOpenMenu(true)} />
         </View>
+        <MosqueIllustration width={375} height={200} color="#D4AF37" />
       </View>
+
+      {/* Main content */}
+      <View className="px-4 -mt-8">
+        <Text className="text-base font-HelveticaRoman mb-2 text-golden dark:text-golden text-center">
+          ماتم قرائته مؤخرا
+        </Text>
+        <MainCard />
+        <SearchInput value={search} onChange={(value) => setSearch(value)} />
+      </View>
+      
       {data && <TypeTabs search={search} data={data} />}
       <ContinePopup isOpen={openCont} />
       <MainDrawer
