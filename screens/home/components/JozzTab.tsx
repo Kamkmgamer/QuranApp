@@ -26,10 +26,9 @@ const JozzTab = ({ search }: { search: string }) => {
     <FlatList
       data={filterdData}
       scrollEnabled
-      className="h-[56%] flex-2 flex-col mt-3"
+      className="flex-1"
       numColumns={2}
-      contentContainerStyle={{ gap: 2 }}
-      columnWrapperStyle={{ gap: 10 }}
+      contentContainerStyle={{ paddingBottom: 10 }}
       initialNumToRender={10}
       showsVerticalScrollIndicator={false}
       onEndReachedThreshold={0.5}

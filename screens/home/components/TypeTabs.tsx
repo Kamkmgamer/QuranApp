@@ -10,7 +10,7 @@ export const TypeTabs = (props: { data: Surah[]; search: string }) => {
   const [tab, setTab] = useState<string>("surah");
 
   return (
-    <View className="px-4 mt-5 h-[62.4%]">
+    <View className="flex-1">
       <Tabs
         setTab={(name) => {
           setTab(name);
@@ -18,7 +18,9 @@ export const TypeTabs = (props: { data: Surah[]; search: string }) => {
         activeTab={tab}
         tabs={tabs(props)}
       />
-      {tabs(props).filter((ta) => ta.name === tab)[0]?.component}
+      <View className="flex-1 mt-2">
+        {tabs(props).filter((ta) => ta.name === tab)[0]?.component}
+      </View>
     </View>
   );
 };
@@ -26,7 +28,7 @@ export const tabs = (props: { data: Surah[]; search: string }) => [
   { name: "surah", title: "سورة", component: <SurahTab {...props} /> },
   {
     name: "chapter",
-    title: "جزء",
+    title: "حزب",
     component: <JozzTab search={props.search} />,
   },
   {
@@ -36,7 +38,7 @@ export const tabs = (props: { data: Surah[]; search: string }) => [
   },
   {
     name: "ayah",
-    title: "آية",
+    title: "أية",
     component: <AzkarTab search={props.search} />,
   },
 ];

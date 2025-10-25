@@ -15,7 +15,7 @@ export const AzkarTab = ({ search }: { search: string }) => {
     : [];
 
   return (
-    <View>
+    <View className="flex-1">
       {isLoading && (
         <Text className="text-center font-HelveticaRoman mt-5 text-primary dark:text-primaryDark">
           جاري التحميل...
@@ -25,7 +25,7 @@ export const AzkarTab = ({ search }: { search: string }) => {
         <FlatList
           data={filterdData}
           scrollEnabled
-          className="h-[90%] flex-col mt-3"
+          className="flex-1 flex-col"
           contentContainerStyle={{ gap: 2 }}
           initialNumToRender={data.length}
           showsVerticalScrollIndicator={false}

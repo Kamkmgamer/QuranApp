@@ -13,45 +13,40 @@ const SurahCard = ({
   return (
     <Pressable
       onPress={onPress}
-      className={`flex-1 m-2 p-4 rounded-2xl border border-darkGreen/20 ${
+      className={`flex-1 mx-1 my-1 p-3 rounded-xl border ${
         isGolden
-          ? 'bg-golden dark:bg-golden shadow-lg'
-          : 'bg-white dark:bg-darkGreen/30'
+          ? 'bg-golden border-golden/30'
+          : 'bg-white dark:bg-darkGreen/30 border-golden/20'
       }`}
+      style={{ height: 90 }}
     >
-      <View className="flex-row items-center mb-2">
-        <View className={`w-10 h-10 rounded-lg items-center justify-center ml-3 ${
+      <View className="flex-row items-center justify-between mb-1">
+        <View className={`w-6 h-6 rounded-md items-center justify-center ${
           isGolden ? 'bg-white/20' : 'bg-golden/20'
         }`}>
-          <Text className={`font-HelveticaBold text-base ${
+          <Text className={`font-HelveticaBold text-xs ${
             isGolden ? 'text-white' : 'text-darkGreen'
           }`}>
             {sura.number}
           </Text>
         </View>
-      </View>
-      <View className="flex-1">
-        <Text className={`font-HelveticaBold text-lg mb-1 ${
-          isGolden ? 'text-white' : 'text-darkGreen dark:text-textLight'
-        }`}>
-          {sura.name_ar.split("سورة")[1]}
-        </Text>
         <Text className={`text-xs font-HelveticaLight ${
           isGolden ? 'text-white/70' : 'text-textGray dark:text-textLight/70'
         }`}>
-          7 آيات
+          {{ Meccan: "مكية", Medinan: "مدنية" }[sura.type]}
         </Text>
       </View>
-      <View className="items-end mt-2">
-        <Text className={`font-HelveticaRoman text-2xl ${
+      
+      <View className="flex-1 justify-center">
+        <Text className={`font-HelveticaBold text-base mb-1 text-center ${
           isGolden ? 'text-white' : 'text-darkGreen dark:text-textLight'
         }`}>
           {sura.name_ar.split("سورة")[1]}
         </Text>
-        <Text className={`text-xs ${
+        <Text className={`text-xs font-HelveticaLight text-center ${
           isGolden ? 'text-white/70' : 'text-textGray dark:text-textLight/70'
         }`}>
-          {{ Meccan: "مكية", Medinan: "مدنية" }[sura.type]}
+          7 آيات
         </Text>
       </View>
     </Pressable>

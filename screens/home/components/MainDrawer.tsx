@@ -77,8 +77,12 @@ const MainDrawer: FC<{
               return <MenuItem key={i} {...item} />;
             })}
           </View>
-          <ReaderDropDown />
-          <FontSizeOptions />
+          <View className="mt-6">
+            <ReaderDropDown />
+          </View>
+          <View className="mt-4">
+            <FontSizeOptions />
+          </View>
         </Motion.View>
       </View>
     </MyModal>

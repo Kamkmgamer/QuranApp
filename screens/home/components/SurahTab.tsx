@@ -12,15 +12,14 @@ const SurahTab = ({ data, search }: { data: Surah[]; search: string }) => {
     <FlatList
       data={filterdData}
       scrollEnabled
-      className="h-[80%] flex-col mt-3"
+      className="flex-1"
       numColumns={2}
-      contentContainerStyle={{ gap: 2 }}
+      contentContainerStyle={{ paddingBottom: 10 }}
       ListEmptyComponent={
         <Text className="my-8 text-center text-primaryDark font-HelveticaLight">
           لا يوجد سور
         </Text>
       }
-      columnWrapperStyle={{ gap: 10 }}
       showsVerticalScrollIndicator={false}
       renderItem={RenderSurah}
       keyExtractor={(item, index) => item.name_ar}

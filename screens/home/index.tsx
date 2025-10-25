@@ -28,30 +28,36 @@ const Home = () => {
   );
 
   return data && isFetched ? (
-    <View
-      className=" w-full h-screen bg-cream dark:bg-darkBg "
-      onTouchStart={() => {
-        if (openCont) setOpenCont(false);
-      }}
-    >
-      {/* Mosque illustration header */}
+    <View className="flex-1 bg-cream dark:bg-darkBg">
+      {/* Header with Mosque */}
       <View className="relative">
         <View className="absolute top-0 right-0 pt-3 pr-4 z-10">
           <Header onClickMenu={() => setOpenMenu(true)} />
         </View>
-        <MosqueIllustration width={375} height={200} color="#D4AF37" />
+        <MosqueIllustration width={375} height={100} color="#D4AF37" />
       </View>
 
-      {/* Main content */}
-      <View className="px-4 -mt-8">
-        <Text className="text-base font-HelveticaRoman mb-2 text-golden dark:text-golden text-center">
-          ماتم قرائته مؤخرا
-        </Text>
-        <MainCard />
-        <SearchInput value={search} onChange={(value) => setSearch(value)} />
+      {/* Content Area */}
+      <View className="flex-1 px-4">
+        {/* Recently Read Section */}
+        <View className="mt-2">
+          <Text className="text-base font-HelveticaRoman mb-3 text-golden dark:text-golden text-center">
+            ماتم قرائته مؤخرا
+          </Text>
+          <MainCard />
+        </View>
+
+        {/* Search Section */}
+        <View className="mt-4">
+          <SearchInput value={search} onChange={(value) => setSearch(value)} />
+        </View>
+
+        {/* Tabs Section */}
+        <View className="flex-1 mt-4">
+          {data && <TypeTabs search={search} data={data} />}
+        </View>
       </View>
       
-      {data && <TypeTabs search={search} data={data} />}
       <ContinePopup isOpen={openCont} />
       <MainDrawer
         isOpen={openMenu}

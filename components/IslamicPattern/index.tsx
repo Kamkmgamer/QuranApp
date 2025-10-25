@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import Svg, { Path, G, Defs, Pattern as SvgPattern, Rect } from "react-native-svg";
+import Svg, { Path, G, Defs, Pattern as SvgPattern, Rect, Circle } from "react-native-svg";
 
 interface IslamicPatternProps {
   width?: number;
@@ -38,7 +38,7 @@ const IslamicPattern: React.FC<IslamicPatternProps> = ({
               strokeWidth="0.5"
               opacity="0.2"
             />
-            <circle cx="20" cy="20" r="2" fill={secondaryColor} opacity="0.4" />
+            <Circle cx="20" cy="20" r="2" fill={secondaryColor} opacity="0.4" />
           </SvgPattern>
         </Defs>
         <Rect x="0" y="0" width={width} height={height} fill={primaryColor} />

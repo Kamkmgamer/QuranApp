@@ -13,9 +13,10 @@ const JozzCard = ({
   return (
     <Pressable
       onPress={onPress}
-      className={`${isGolden ? 'bg-golden dark:bg-golden' : 'bg-white dark:bg-darkGreen/30'} basis-2 my-2 p-4 w-full rounded-2xl px-6 flex-1 flex-row items-center justify-center border border-golden/20`}
+      className={`${isGolden ? 'bg-golden border-golden/30' : 'bg-white dark:bg-darkGreen/30 border-golden/20'} flex-1 mx-1 my-1 p-3 rounded-xl border items-center justify-center`}
+      style={{ height: 80 }}
     >
-      <Text className={`${isGolden ? 'text-white' : 'text-darkGreen dark:text-textLight'} font-HelveticaBold text-lg text-center w-full`}>
+      <Text className={`${isGolden ? 'text-white' : 'text-darkGreen dark:text-textLight'} font-HelveticaBold text-base text-center`}>
         {jozz.name}
       </Text>
     </Pressable>
